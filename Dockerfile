@@ -1,10 +1,9 @@
 # Build stage
 FROM node:16-alpine as build
 WORKDIR /home/videosonik
-COPY package.json yarn.lock .
-RUN yarn
 COPY . .
-RUN yarn build:production
+RUN yarn install
+RUN yarn build --prod
 
 # Package stage
 FROM nginx:stable-alpine
