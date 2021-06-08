@@ -3,7 +3,7 @@ FROM node:16-alpine as build
 WORKDIR /home/videosonik
 COPY . .
 RUN yarn install
-RUN yarn build --prod
+RUN yarn build
 
 # Package stage
 FROM nginx:stable-alpine
